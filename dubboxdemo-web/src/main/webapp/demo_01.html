@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>angularJS入门案例</title>
+<script src="angular.min.js"></script>
+<script>
+var app=angular.module('myApp',[]);
+app.controller('myController',function($scope,$http){
+	$scope.findAll=function(){
+		$http.get('demo.json').success(
+				function(response){
+					$scope.list=response;
+				}
+			);}
+		});
+</script>
+</head>
+<body ng-app="myApp" ng-controller="myController" ng-init=findAll()>
+	<table>
+		<tr>
+			<th>姓名</th>
+			<th>语文</th>
+			<th>英语</th>
+		</tr>
+		<tr ng-repeat="entity in list">
+			<td>{{entity.name}}</td>
+			<td>{{entity.chinese}}</td>
+			<td>{{entity.english}}</td>
+		</tr>
+	</table>
+</body>
+</html>
