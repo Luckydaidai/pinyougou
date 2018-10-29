@@ -4,7 +4,7 @@ import com.pinyougou.pojo.TbItemCat;
 
 import entity.PageResult;
 /**
- * 服务层接口
+ * 商品分层服务层接口
  * @author Administrator
  *
  */
@@ -57,5 +57,10 @@ public interface ItemCatService {
 	 * @return
 	 */
 	public PageResult findPage(TbItemCat itemCat, int pageNum,int pageSize);
-	
+	/**
+	* 根据上级ID返回列表
+	* @return
+	*/
+	public List<TbItemCat> findByParentId(Long parentId);
+
 }

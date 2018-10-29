@@ -51,7 +51,18 @@ app.controller('sellerController' ,function($scope,$controller   ,sellerService)
 		);				
 	}
 	
-	 
+	//更改状态
+	$scope.updateStatus=function(sellerId,status){
+		sellerService.updateStatus(sellerId,status).success(
+			function(response){
+				if(response.success){
+					$scope.reloadList();//重新加载
+				}else{
+					alert(response.message);
+				}				
+			}
+		);		
+	}
 	//批量删除 
 	$scope.dele=function(){			
 		//获取选中的复选框			

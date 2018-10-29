@@ -13,7 +13,7 @@ public class TbGoodsExample {
 
     public TbGoodsExample() {
         oredCriteria = new ArrayList<Criteria>();
-    }
+    }	
 
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
